@@ -221,6 +221,7 @@ export default function Trending(props) {
                                             </div>
                                         </div>
                                         <div class="card-body">
+                                            
                                             <p>Name : {trendingdata[5]['name']}<br/>
                                             Marcket_Cap_Rank : {trendingdata[5]['market_cap_rank']}</p>
                                             <ul class="d-flex list-unstyled mt-auto">
