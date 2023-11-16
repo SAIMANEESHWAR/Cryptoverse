@@ -10,7 +10,7 @@ export default function Aboutcrypto(props) {
     return (
         <div>
             <Link className='link-underline  link-dark link-underline-opacity-0 ' to={store.datares.data.links.blockchain_site[0]}>
-                <h2 className='mt-2'><i class="fa-solid fa-house"></i></h2> </Link>
+                <h2 className='mt-2'><i class="fa-solid fa-house"></i>-Page</h2> </Link>
             <div class="p-1  text-center align-items-center  rounded-3">
                 <Link to={store.datares.data.links.blockchain_site[0]}> <div>
                     <img className='img-fluid bd-placeholder-img rounded-circle  border' src={store.datares.data.image.large} alt="Coin Image" />

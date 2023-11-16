@@ -2,8 +2,10 @@ import React from 'react'
 import showstore from '../store/showstrore';
 import Navbar from '../components/navbar';
 import Aboutcrypto from '../components/aboutcrypto';
+import { useNavigate } from "react-router-dom";
 import { AppContext } from '../parentofparents.js';
 import { useContext } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -55,6 +57,7 @@ export default function Show() {
     const { themecolor, setthemecolor } = useContext(
         AppContext
       );
+      const navigate = useNavigate();
     const store = showstore();
     const params = useParams();
     console.log(params.id);
@@ -66,6 +69,12 @@ export default function Show() {
         console.log(params);
         store.fetchData(params.id);
     }, []);
+
+        useEffect(()=>{
+        if(sessionStorage.getItem('verifieduser')==='false'){
+            navigate('/');
+        }
+    },[]);
 
     return (
         <div className={` ${themecolor ? "bg-dark-subtle" : ""}`}>

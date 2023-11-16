@@ -10,12 +10,17 @@ import DataTable from 'react-data-table-component';
 import Firstpic from '../components/firstpic.jsx';
 import Trending from '../components/trending.jsx';
 import Footer from '../components/footer.jsx';
+import {db,auth} from '../firebase/firebase.js';
+import { doc, collection, getDoc } from 'firebase/firestore';
+
+
 
 export default function Home() {
     const { themecolor, setthemecolor } = useContext(
         AppContext
       );
-   
+      const navigate = useNavigate();
+
     // Custom styles for DataTable
     const customStyles = {
         
@@ -75,17 +80,27 @@ export default function Home() {
     ];
 
     var myhomestrore = homestore();
+    useEffect(()=>{
+        console.log(sessionStorage.getItem('verifieduser')==='false');
+        if(
+            sessionStorage.getItem('verifieduser')==='false'
+        ){
+            console.log("po");
+            navigate('/');
+        }
 
+    },[])
     useEffect(() => {
         console.log(myhomestrore.fetchCoins());
+        
     }, []);
 
     return (
         <div className={` ${themecolor ? "bg-dark-subtle" : ""}`}>
 
-            {myhomestrore && myhomestrore.coins && myhomestrore.coins.length > 0 && (
+            {  myhomestrore && myhomestrore.coins && myhomestrore.coins.length > 0 && (
                 <>
-                    <Navbar themecolor={themecolor}  setthemecolor={setthemecolor}/>
+                    <Navbar themecolor={themecolor}  setthemecolor={setthemecolor}   />
 
                     <Firstpic themecolor={themecolor}/>
                     <Trending themecolor={themecolor} trendingdata={myhomestrore.coins} />
