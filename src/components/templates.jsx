@@ -7,10 +7,11 @@ import mem6 from '../photos/photos/saiakshay.jpg';
 import mem8 from '../photos/photos/mem8.jpg'
 import me from '../photos/photos/me2.jpg';
 import Footer from './footer';
+import Rahul from '../photos/photos/Rahul.jpg'
 
 export default function templates() {
-    const imgSources = [me, mem1, mem2,mem6,mem8,mem4];
-    const namesources=["Sai Maneeshwar","Sravani","Vinay","Sai Akshay","Ananya","Shashank"]
+    const imgSources = [me, Rahul];
+    const namesources=["Sai Maneeshwar","Rahul"]
     return (
         <div>        
             <div class="container mt-5 bg-dark-subtle">
